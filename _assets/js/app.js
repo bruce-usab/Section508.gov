@@ -50,4 +50,10 @@ function scrollFunction() {
             return attr == 'true' ? 'false' : 'true';
         });
     });
+    $(".top-parent").click(function(){
+        if($(this).hasClass('active')) {
+            $(this).children('ul').children('li').attr('aria-expanded', 'false');
+        }
+    });
+
 });

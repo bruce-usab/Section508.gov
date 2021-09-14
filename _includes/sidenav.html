@@ -47,7 +47,7 @@ _layouts/page.html layout template, or you can add "sidenav: true" in the front-
             {%- assign current = true -%}
             {%- endif -%}
             {%- if link.children -%}
-            <li class="usa-sidenav__item list aria {% if current %} active usa-current{% endif %}" aria-expanded="false">
+            <li class="usa-sidenav__item list aria top-parent {% if current %} active usa-current{% endif %}" aria-expanded="false">
                 <a href="javascript:void(0);" class="header-menu-text" aria-label="{{ link.name }} - Submenu">{{- link.name -}}</a>
                 <ul class="usa-sidenav__sublist items">
                     {%- for children in link.children -%}
