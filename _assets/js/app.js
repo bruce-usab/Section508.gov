@@ -21,9 +21,9 @@ for(i = 0; i < list.length; i++ ){
 }
 jQuery('.active').parent().parent().parent().parent().addClass('active');
 jQuery('.active').parent().parent().addClass('active');
-jQuery('.active.usa-current').parent().parent().parent().parent().attr('aria-expanded', 'true');
-jQuery('.active.usa-current').parent().parent().attr('aria-expanded', 'true');
-
+jQuery('.top-parent .active.usa-current').parent().parent().parent().attr('aria-expanded', 'true');
+jQuery('.top-parent .active.usa-current').parent().parent().attr('aria-expanded', 'true');
+jQuery('.top-parent.active').attr('aria-expanded', 'true');
 
 $(document).ready(function (e) {
     
