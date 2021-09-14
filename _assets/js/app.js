@@ -21,6 +21,8 @@ for(i = 0; i < list.length; i++ ){
 }
 jQuery('.active').parent().parent().parent().parent().addClass('active');
 jQuery('.active').parent().parent().addClass('active');
+jQuery('.active').parent().parent().parent().parent().attr('aria-expanded', 'true');
+jQuery('.active').parent().parent().attr('aria-expanded', 'true');
 
 
 $(document).ready(function (e) {
@@ -43,5 +45,9 @@ function scrollFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   });
-
+    $(".aria").click(function(){
+        $(this).attr('aria-expanded', function(index, attr){
+            return attr == 'true' ? 'false' : 'true';
+        });
+    });
 });
