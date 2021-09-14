@@ -19,10 +19,10 @@ function accordion(e){
 for(i = 0; i < list.length; i++ ){
     list[i].addEventListener('click', accordion);
 }
-jQuery('.usa-sidenav .active').parent().parent().parent().parent().addClass('active');
-jQuery('.usa-sidenav .active').parent().parent().addClass('active');
-jQuery('.usa-sidenav .active').parent().parent().parent().parent().attr('aria-expanded', 'true');
-jQuery('.usa-sidenav .active').parent().parent().attr('aria-expanded', 'true');
+jQuery('.active').parent().parent().parent().parent().addClass('active');
+jQuery('.active').parent().parent().addClass('active');
+jQuery('.active.usa-current').parent().parent().parent().parent().attr('aria-expanded', 'true');
+jQuery('.active.usa-current').parent().parent().attr('aria-expanded', 'true');
 
 
 $(document).ready(function (e) {
