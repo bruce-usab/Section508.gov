@@ -38,8 +38,8 @@ _layouts/page.html layout template, or you can add "sidenav: true" in the front-
 {%- endif -%}
 
 <aside class="usa-layout-docs__sidenav desktop:grid-col-3 padding-bottom-4">
-    <nav role="sideNavigation">
-        <ul class="usa-sidenav menu" role="sidenav">
+    <nav role="tree">
+        <ul class="usa-sidenav menu" role="group">
             {%- for link in links -%}
             {%- assign href = link.url -%}
             {%- assign current = false -%}
@@ -47,7 +47,7 @@ _layouts/page.html layout template, or you can add "sidenav: true" in the front-
             {%- assign current = true -%}
             {%- endif -%}
             {%- if link.children -%}
-            <li class="usa-sidenav__item list aria top-parent {% if current %} active usa-current{% endif %}" aria-expanded="false" role="sidenavitem">
+            <li class="usa-sidenav__item list aria top-parent {% if current %} active usa-current{% endif %}" aria-expanded="false" role="treeitem">
                 <a href="javascript:void(0);" class="header-menu-text" aria-label="{{ link.name }} - Submenu">{{- link.name -}}</a>
                 <ul class="usa-sidenav__sublist items" role="group">
                     {%- for children in link.children -%}
@@ -56,7 +56,7 @@ _layouts/page.html layout template, or you can add "sidenav: true" in the front-
                     {%- assign currentChild = true -%}
                     {%- endif -%}
                     {%- if children.grandchildren -%}
-                    <li class="usa-sidenav__item list aria {% if currentChild %} active usa-current {% endif %}" aria-expanded="false" role="sidenavitem">
+                    <li class="usa-sidenav__item list aria {% if currentChild %} active usa-current {% endif %}" aria-expanded="false" role="treeitem">
                             <a href="javascript:void(0);" aria-label="{{ children.name }} - Submenu">{{- children.name -}}</a>
                          <ul class="usa-sidenav__sublist items" role="group">
                           {%- for grandchildren in children.grandchildren -%}
@@ -64,7 +64,7 @@ _layouts/page.html layout template, or you can add "sidenav: true" in the front-
                              {%- if page.url == grandchildren.url or page.permalink == grandchildren.url -%}
                              {%- assign currentGrandchild = true -%}
                              {%- endif -%}
-                           <li class="usa-sidenav__item {% if currentGrandchild %} active usa-current {% endif %}" role="sidenavitem">
+                           <li class="usa-sidenav__item {% if currentGrandchild %} active usa-current {% endif %}" role="treeitem">
                              <a href="{%- if grandchildren.external -%}{{ grandchildren.url }}{%- else -%} {{ site.baseurl }}/{{ grandchildren.url  }} {%- endif -%}">
                                {{- grandchildren.name -}}
                              </a>
@@ -73,7 +73,7 @@ _layouts/page.html layout template, or you can add "sidenav: true" in the front-
                          </ul>
                     </li>
                     {%- else -%}
-                    <li class="usa-sidenav__item {% if currentChild %} active usa-current {% endif %}" role="sidenavitem">
+                    <li class="usa-sidenav__item {% if currentChild %} active usa-current {% endif %}" role="treeitem">
                         <a href="{%- if children.external -%}{{ children.url }}{%- else -%} {{ site.baseurl }}/{{ children.url }} {%- endif -%}">
                             {{- children.name -}}
                         </a>
@@ -83,7 +83,7 @@ _layouts/page.html layout template, or you can add "sidenav: true" in the front-
                 </ul>
             </li>
             {%- else -%}
-            <li class="usa-sidenav__item" role="sidenavitem">
+            <li class="usa-sidenav__item" role="treeitem">
                 <a href="{%- if link.external -%}{{ href }}{%- else -%} {{ site.baseurl }}/{{ href }} {%- endif -%}" {% if current %} class="active usa-current" {% endif %}>
                     {{- link.name -}}
                 </a>
